@@ -1,0 +1,21 @@
+<table border="1">
+  <tr>
+    <th>Franchise</th>
+    <th>Date</th>
+    <th>Result</th>
+    <th>Total Yards</th>
+    <th>Pass Yards</th>
+    <th>Rush Yards</th>
+  </tr>
+
+  {% for game_stats in game_stats_details %}
+  <tr>
+    <td>{{game_stats[0]}}</td>
+    <td>{{game_stats[1]}}</td>
+    <td>{{game_stats[2]}}</td>
+    <td>{{game_stats[3]}}</td>
+    <td>{{game_stats[4]}}</td>
+    <td>{{game_stats[5]}}</td>
+  </tr>
+  {%endfor%}
+</table>

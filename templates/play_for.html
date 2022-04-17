@@ -1,0 +1,18 @@
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Date Of Birth</th>
+    <th>Franchise</th>
+    <th>Start</th>
+    <th>End</th>
+  </tr>
+  {% for play_for in play_for_details %}
+  <tr>
+    <td>{{play_for[0]}}</td>
+    <td>{{play_for[1]}}</td>
+    <td>{{play_for[2]}}</td>
+    <td>{{play_for[3]}}</td>
+    <td>{{play_for[4]}}</td>
+  </tr>
+  {%endfor%}
+</table>

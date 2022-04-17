@@ -1,0 +1,18 @@
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Date Of Birth</th>
+    <th>Kit Number</th>
+    <th>Position</th>
+    <th>Team Name</th>
+  </tr>
+  {% for player in player_details %}
+  <tr>
+    <td>{{player[0]}}</td>
+    <td>{{player[1]}}</td>
+    <td>{{player[2]}}</td>
+    <td>{{player[3]}}</td>
+    <td>{{player[4]}}</td>
+  </tr>
+  {%endfor%}
+</table>

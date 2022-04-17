@@ -1,0 +1,27 @@
+<table border="1">
+  <tr>
+    <th>Franchise</th>
+    <th>Season</th>
+    <th>Wins</th>
+    <th>Losses</th>
+    <th>Ties</th>
+    <th>Total Points</th>
+    <th>Total Yards</th>
+    <th>Touchdowns</th>
+    <th>Field Goals</th>
+  </tr>
+  {% for team_stats in team__stats_details %}
+
+  <tr>
+    <td>{{team_stats[0]}}</td>
+    <td>{{team_stats[1]}}</td>
+    <td>{{team_stats[2]}}</td>
+    <td>{{team_stats[3]}}</td>
+    <td>{{team_stats[4]}}</td>
+    <td>{{team_stats[5]}}</td>
+    <td>{{team_stats[6]}}</td>
+    <td>{{team_stats[7]}}</td>
+    <td>{{team_stats[8]}}</td>
+  </tr>
+  {%endfor%}
+</table>

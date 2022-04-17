@@ -1,0 +1,26 @@
+<table border="1">
+  <tr>
+    <th>Name</th>
+    <th>Season</th>
+    <th>Running Yards</th>
+    <th>Throwing Yards</th>
+    <th>Sacks</th>
+    <th>Catches</th>
+    <th>Touchdowns</th>
+    <th>Punt Returns</th>
+    <th>Field Goals</th>
+  </tr>
+  {% for player_stats in player_stats_details %}
+  <tr>
+    <td>{{player_stats[0]}}</td>
+    <td>{{player_stats[1]}}</td>
+    <td>{{player_stats[2]}}</td>
+    <td>{{player_stats[3]}}</td>
+    <td>{{player_stats[4]}}</td>
+    <td>{{player_stats[5]}}</td>
+    <td>{{player_stats[6]}}</td>
+    <td>{{player_stats[7]}}</td>
+    <td>{{player_stats[8]}}</td>
+  </tr>
+  {%endfor%}
+</table>
