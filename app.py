@@ -98,17 +98,21 @@ def game_stats():
     cursor.close()
     return render_template("gameStats.html", game_stats_details=game_stats_details)
 
-@app.route('/<player_name>')
-def player_profile(player_name):
-    cursor = mysql.connection.cursor()
+# @app.route('/<player_name>') #localhost:5000/tom-brady
+# def player_profile(player_name):
+#     player_name.split('-') # ['tom', 'brady']
+#     local_player_name = player_name[0] + ' ' + player_name[1] # tom brady
+#     print(local_player_name)
+#     cursor = mysql.connection.cursor()
 
-    player_information_query = cursor.execute("SELECT {player_name} FROM player, play_for, player_stats ")
-    #player_stats = cursor.execute("SELECT {player_name} FROM  player_stats")
-    if player_information_query > 0:
-        player_information = cursor.fetchall()
+#     #sql_query = "SELECT %s FROM player CROSS JOIN play_for CROSS JOIN player_stats"
+#     player_information_query = cursor.execute( "SELECT %s FROM player CROSS JOIN play_for CROSS JOIN player_stats" % local_player_name)
+#     #player_stats = cursor.execute("SELECT {player_name} FROM  player_stats")
+#     if player_information_query > 0:
+#         player_information = cursor.fetchall()
 
-    cursor.close()
-    return render_template("test.html", player_information)
+#     cursor.close()
+#     return render_template("test.html", player_information)
 
 if __name__ == "__main__":
     app.run(debug = True)
