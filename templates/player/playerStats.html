@@ -1,0 +1,30 @@
+<table border="1" style="font-size:90%">
+  <tr>
+    <th>Name</th>
+    <th>Season</th>
+    <th>Running Yards</th>
+    <th>Throwing Yards</th>
+    <th>Sacks</th>
+    <th>Catches</th>
+    <th>Touchdowns</th>
+    <th>Punt Returns</th>
+    <th>Field Goals</th>
+  </tr>
+  {% for player_stats in player_stats_details %}
+  <tr>
+    <td><a class="info" value="player">{{player_stats[0]}}</a></td>
+    <td><a class="info" value="season">{{player_stats[1]}}</a></td>
+    <td>{{player_stats[2]}}</td>
+    <td>{{player_stats[3]}}</td>
+    <td>{{player_stats[4]}}</td>
+    <td>{{player_stats[5]}}</td>
+    <td>{{player_stats[6]}}</td>
+    <td>{{player_stats[7]}}</td>
+    <td>{{player_stats[8]}}</td>
+  </tr>
+  {%endfor%}
+</table>
+<form>
+  <input type="button" value="Back" onclick="history.back()">
+ </form>
+ <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>

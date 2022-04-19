@@ -1,0 +1,25 @@
+<table border="1" style="font-size:90%">
+  <tr>
+    <th>Franchise</th>
+    <th>Date</th>
+    <th>Result</th>
+    <th>Total Yards</th>
+    <th>Pass Yards</th>
+    <th>Rush Yards</th>
+  </tr>
+
+  {% for game_stats in game_stats_details %}
+  <tr>
+    <td><a class="info" value="franchise">{{game_stats[0]}}</a></td>
+    <td>{{game_stats[1]}}</td>
+    <td>{{game_stats[2]}}</td>
+    <td>{{game_stats[3]}}</td>
+    <td>{{game_stats[4]}}</td>
+    <td>{{game_stats[5]}}</td>
+  </tr>
+  {%endfor%}
+</table>
+<form>
+  <input type="button" value="Back" onclick="history.back()">
+ </form>
+ <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
