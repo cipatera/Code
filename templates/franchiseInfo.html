@@ -1,0 +1,42 @@
+<table border="1" style="font-size:70%">
+    <tr>
+      <th>Name</th>
+      <th>Date of Birth</th>
+      <th>Kit Number</th>
+      <th>Position</th>
+      <th>Season</th>
+      <th>Total Running Yards</th>
+      <th>Total Throwing Yards</th>
+      <th>Total Sacks</th>
+      <th>Total Catch</th>
+      <th>Total Touchdowns</th>
+      <th>Total Punt Returns</th>
+      <th>Total Field Goals</th>
+      <th>Franchise</th>
+      <th>Starting Year</th>
+      <th>Ending Year</th>
+    </tr>
+    {% for franchiseInfo in franchiseInfo_details %}
+    <tr>
+      <td>{{franchiseInfo[0]}}</td>
+      <td>{{franchiseInfo[1]}}</td>
+      <td>{{franchiseInfo[2]}}</td>
+      <td>{{franchiseInfo[3]}}</td>
+      <td>{{franchiseInfo[4]}}</td>
+      <td>{{franchiseInfo[5]}}</td>
+      <td>{{franchiseInfo[6]}}</td>
+      <td>{{franchiseInfo[7]}}</td>
+      <td>{{franchiseInfo[8]}}</td>
+      <td>{{franchiseInfo[9]}}</td>
+      <td>{{franchiseInfo[10]}}</td>
+      <td>{{franchiseInfo[11]}}</td>
+      <td>{{franchiseInfo[12]}}</td>
+      <td>{{franchiseInfo[13]}}</td>
+      <td>{{franchiseInfo[14]}}</td>
+    </tr>
+    {%endfor%}
+  </table>
+  <form>
+    <input type="button" value="Back" onclick="history.back()">
+   </form>
+   <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>

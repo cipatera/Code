@@ -8,7 +8,7 @@
   </tr>
   {% for play_for in play_for_details %}
   <tr>
-    <td>{{play_for[0]}}</td>
+    <td><a class="info" value="player">{{play_for[0]}}</a></td>
     <td>{{play_for[1]}}</td>
     <td>{{play_for[2]}}</td>
     <td>{{play_for[3]}}</td>
@@ -16,3 +16,7 @@
   </tr>
   {%endfor%}
 </table>
+<form>
+  <input type="button" value="Back" onclick="history.back()">
+ </form>\
+ <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>

@@ -4,15 +4,17 @@
     <th>Date Of Birth</th>
     <th>Kit Number</th>
     <th>Position</th>
-    <th>Team Name</th>
   </tr>
   {% for player in player_details %}
   <tr>
-    <td>{{player[0]}}</td>
+    <td><a class="info" value="player">{{player[0]}}</a></td>
     <td>{{player[1]}}</td>
     <td>{{player[2]}}</td>
-    <td>{{player[3]}}</td>
-    <td>{{player[4]}}</td>
+    <td><a class="info" value="position">{{player[3]}}</a></td>
   </tr>
   {%endfor%}
 </table>
+<form>
+  <input type="button" value="Back" onclick="history.back()">
+ </form>
+ <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>

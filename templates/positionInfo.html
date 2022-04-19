@@ -1,0 +1,41 @@
+<table border="1" style="font-size:70%">
+    <tr>
+      <th>Position</th>
+      <th>Name</th>
+      <th>Date of Birth</th>
+      <th>Kit Number</th>
+      <th>Season</th>
+      <th>Total Running Yards</th>
+      <th>Total Throwing Yards</th>
+      <th>Total Sacks</th>
+      <th>Total Catch</th>
+      <th>Total Touchdowns</th>
+      <th>Total Punt Returns</th>
+      <th>Total Field Goals</th>
+      <th>Franchise</th>
+      <th>Starting Year</th>
+      <th>Ending Year</th>
+    </tr>
+    {% for positionInfo in positionInfo_details %}
+    <tr>
+      <td>{{positionInfo[0]}}</td>
+      <td>{{positionInfo[1]}}</td>
+      <td>{{positionInfo[2]}}</td>
+      <td>{{positionInfo[3]}}</td>
+      <td>{{positionInfo[4]}}</td>
+      <td>{{positionInfo[5]}}</td>
+      <td>{{positionInfo[6]}}</td>
+      <td>{{positionInfo[7]}}</td>
+      <td>{{positionInfo[8]}}</td>
+      <td>{{positionInfo[9]}}</td>
+      <td>{{positionInfo[10]}}</td>
+      <td>{{positionInfo[11]}}</td>
+      <td>{{positionInfo[12]}}</td>
+      <td>{{positionInfo[13]}}</td>
+      <td>{{positionInfo[14]}}</td>
+    </tr>
+    {%endfor%}
+  </table>
+  <form>
+    <input type="button" value="Back" onclick="history.back()">
+   </form>

@@ -57,7 +57,7 @@ INSERT INTO play_for(name,DOB,franchise,start,end) VALUES ('Nick Folk','1984-11-
 INSERT INTO play_for(name,DOB,franchise,start,end) VALUES ('Nick Folk','1984-11-05','Patriots',2019,2021);
 INSERT INTO play_for(name,DOB,franchise,start,end) VALUES ('Jalen Reagor','1999-01-02','Eagles',2020,2021);
 
-insert into team_stats
+insert into team_stats (franchise, season, wins, losses, ties, total points, total hards, touchdowns, field goals)
 values
 ('Bills', 2021, 11, 6, 0, 483, 6493, 56, 28), 
 ('Patriots', 2021, 10, 7, 0, 462, 6008, 48, 36), 
