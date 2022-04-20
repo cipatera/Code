@@ -1,0 +1,46 @@
+<table border="1" style="font-size:90%">
+  <tr>
+    <th>Season</th>
+    <th>Franchise</th>
+    <th>Wins</th>
+    <th>Losses</th>
+    <th>Ties</th>
+    <th>Total Points</th>
+    <th>Total Yards</th>
+    <th>Team Touchdowns</th>
+    <th>Team Field Goals</th>
+    <th>Player Name</th>
+    <th>Running Yards</th>
+    <th>Throwing Yards</th>
+    <th>Sacks</th>
+    <th>Catches</th>
+    <th>Player Touchdowns</th>
+    <th>Punt Returns</th>
+    <th>Player Field Goals</th>
+  </tr>
+  {% for season_info in season_info_details %}
+  <tr>
+    <td>{{season_info[0]}}</td>
+    <td><a class="info" value="franchise">{{season_info[1]}}</a></td>
+    <td>{{season_info[2]}}</td>
+    <td>{{season_info[3]}}</td>
+    <td>{{season_info[4]}}</td>
+    <td>{{season_info[5]}}</td>
+    <td>{{season_info[6]}}</td>
+    <td>{{season_info[7]}}</td>
+    <td>{{season_info[8]}}</td>
+    <td><a class="info" value="player">{{season_info[9]}}</a></td>
+    <td>{{season_info[10]}}</td>
+    <td>{{season_info[11]}}</td>
+    <td>{{season_info[12]}}</td>
+    <td>{{season_info[13]}}</td>
+    <td>{{season_info[14]}}</td>
+    <td>{{season_info[15]}}</td>
+    <td>{{season_info[16]}}</td>
+  </tr>
+  {%endfor%}
+</table>
+<form>
+  <input type="button" value="Back" onclick="history.back()">
+ </form>
+ <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>

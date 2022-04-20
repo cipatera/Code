@@ -1,25 +1,31 @@
 <table border="1" style="font-size:70%">
     <tr>
-      <th>Name</th>
-      <th>Date of Birth</th>
-      <th>Kit Number</th>
-      <th>Position</th>
-      <th>Season</th>
-      <th>Total Running Yards</th>
-      <th>Total Throwing Yards</th>
-      <th>Total Sacks</th>
-      <th>Total Catch</th>
-      <th>Total Touchdowns</th>
-      <th>Total Punt Returns</th>
-      <th>Total Field Goals</th>
-      <th>Franchise</th>
-      <th>Starting Year</th>
-      <th>Ending Year</th>
+      <th>Name</th> <!-- 0 -->
+      <th>Season</th> <!-- 1 -->
+      <th>Wins</th> <!-- 2 -->
+      <th>Losses</th> <!-- 3 -->
+      <th>Ties</th> <!-- 4 -->
+      <th>Total Points</th> <!-- 5 -->
+      <th>Total Yards</th> <!-- 6 -->
+      <th>Touchdowns</th> <!-- 7 -->
+      <th>Field Goals</th> <!-- 8 -->
+      <th>Date of Game</th> <!-- 9 -->
+      <th>Result of Game</th> <!-- 10 -->
+      <th>Total Yards in the Game</th> <!-- 11 -->
+      <th>Total Pass Yards in Game</th> <!-- 12 -->
+      <th>Total Rush Yards in Game</th> <!-- 13 -->
+      <th>City</th> <!-- 14 -->
+      <th>Founded</th> <!-- 15 -->
+      <th>Division</th> <!-- 16 -->
+      <th>Player Name</th> <!-- 17 -->
+      <th>Player Date of Birth</th> <!-- 18 -->
+      <th>Starting Date for the Player</th> <!-- 19 -->
+      <th>Ending Date for the Player</th> <!-- 20 -->
     </tr>
     {% for franchiseInfo in franchiseInfo_details %}
     <tr>
       <td>{{franchiseInfo[0]}}</td>
-      <td>{{franchiseInfo[1]}}</td>
+      <td><a class="info" value="season">{{franchiseInfo[1]}}</a></td>
       <td>{{franchiseInfo[2]}}</td>
       <td>{{franchiseInfo[3]}}</td>
       <td>{{franchiseInfo[4]}}</td>
@@ -32,7 +38,13 @@
       <td>{{franchiseInfo[11]}}</td>
       <td>{{franchiseInfo[12]}}</td>
       <td>{{franchiseInfo[13]}}</td>
-      <td>{{franchiseInfo[14]}}</td>
+      <td><a class="info" value="city">{{franchiseInfo[14]}}</a></td>
+      <td>{{franchiseInfo[15]}}</td>
+      <td><a class="info" value="division">{{franchiseInfo[16]}}</a></td>
+      <td><a class="info" value="player">{{franchiseInfo[17]}}</a></td>
+      <td>{{franchiseInfo[18]}}</td>
+      <td>{{franchiseInfo[19]}}</td>
+      <td>{{franchiseInfo[20]}}</td>
     </tr>
     {%endfor%}
   </table>

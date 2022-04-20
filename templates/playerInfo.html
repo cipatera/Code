@@ -1,20 +1,20 @@
 <table border="1" style="font-size:70%">
     <tr>
-      <th>Name</th>
-      <th>Date of Birth</th>
-      <th>Kit Number</th>
-      <th>Position</th>
-      <th>Season</th>
-      <th>Total Running Yards</th>
-      <th>Total Throwing Yards</th>
-      <th>Total Sacks</th>
-      <th>Total Catch</th>
-      <th>Total Touchdowns</th>
-      <th>Total Punt Returns</th>
-      <th>Total Field Goals</th>
-      <th>Franchise</th>
-      <th>Starting Year</th>
-      <th>Ending Year</th>
+      <th>Name</th> <!-- 0 -->
+      <th>Date of Birth</th> <!-- 1 -->
+      <th>Kit Number</th> <!-- 2 -->
+      <th>Position</th> <!-- 3 -->
+      <th>Season</th> <!-- 4 -->
+      <th>Total Running Yards</th> <!-- 5 -->
+      <th>Total Throwing Yards</th> <!-- 6 -->
+      <th>Total Sacks</th> <!-- 7 -->
+      <th>Total Catch</th> <!-- 8 -->
+      <th>Total Touchdowns</th> <!-- 9 -->
+      <th>Total Punt Returns</th> <!-- 10 -->
+      <th>Total Field Goals</th> <!-- 11 -->
+      <th>Franchise</th> <!-- 12 -->
+      <th>Starting Year</th> <!-- 13 -->
+      <th>Ending Year</th> <!-- 14 -->
     </tr>
     {% for playerInfo in playerInfo_details %}
     <tr>
@@ -22,7 +22,7 @@
       <td>{{playerInfo[1]}}</td>
       <td>{{playerInfo[2]}}</td>
       <td><a class="info" value="position">{{playerInfo[3]}}</a></td>
-      <td>{{playerInfo[4]}}</td>
+      <td><a class="info" value="season">{{playerInfo[4]}}</a></td>
       <td>{{playerInfo[5]}}</td>
       <td>{{playerInfo[6]}}</td>
       <td>{{playerInfo[7]}}</td>
@@ -30,7 +30,7 @@
       <td>{{playerInfo[9]}}</td>
       <td>{{playerInfo[10]}}</td>
       <td>{{playerInfo[11]}}</td>
-      <td>{{playerInfo[12]}}</td>
+      <td><a class="info" value="franchise">{{playerInfo[12]}}</a></td>
       <td>{{playerInfo[13]}}</td>
       <td>{{playerInfo[14]}}</td>
     </tr>

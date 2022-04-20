@@ -1,19 +1,19 @@
 <table border="1">
   <tr>
-    <th>Name</th>
-    <th>Season</th>
-    <th>Running Yards</th>
-    <th>Throwing Yards</th>
-    <th>Sacks</th>
-    <th>Catches</th>
-    <th>Touchdowns</th>
-    <th>Punt Returns</th>
-    <th>Field Goals</th>
+    <th>Name</th> <!-- 0 -->
+    <th>Season</th> <!-- 1 -->
+    <th>Running Yards</th> <!-- 2 -->
+    <th>Throwing Yards</th> <!-- 3 -->
+    <th>Sacks</th> <!-- 4 -->
+    <th>Catches</th> <!-- 5 -->
+    <th>Touchdowns</th> <!-- 6 -->
+    <th>Punt Returns</th> <!-- 7 -->
+    <th>Field Goals</th> <!-- 8 -->
   </tr>
   {% for player_stats in player_stats_details %}
   <tr>
-    <td><a class="name">{{player_stats[0]}}</a></td>
-    <td>{{player_stats[1]}}</td>
+    <td><a class="info" value="player">{{player_stats[0]}}</a></td>
+    <td><a class="info" value="season">{{player_stats[1]}}</a></td>
     <td>{{player_stats[2]}}</td>
     <td>{{player_stats[3]}}</td>
     <td>{{player_stats[4]}}</td>

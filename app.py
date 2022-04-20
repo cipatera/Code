@@ -31,7 +31,7 @@ def player():
         player_details = cursor.fetchall()
 
     cursor.close()
-    return render_template("/player/player.html", player_details=player_details)
+    return render_template("/player.html", player_details=player_details)
 
 @app.route('/team')
 def team():
@@ -42,7 +42,7 @@ def team():
         team_details = cursor.fetchall()
 
     cursor.close()
-    return render_template("/team/team.html", team_details=team_details)
+    return render_template("/team.html", team_details=team_details)
 
 @app.route('/game')
 def game():
@@ -53,7 +53,7 @@ def game():
         game_details = cursor.fetchall()
 
     cursor.close()
-    return render_template("/game/game.html", game_details=game_details)
+    return render_template("/game.html", game_details=game_details)
 
 @app.route('/playerStats')
 def player_stats():
@@ -64,7 +64,7 @@ def player_stats():
         player_stats_details = cursor.fetchall()
 
     cursor.close()
-    return render_template("/player/playerStats.html", player_stats_details=player_stats_details)
+    return render_template("/playerStats.html", player_stats_details=player_stats_details)
 
 @app.route('/play_for')
 def play_for():
@@ -89,7 +89,7 @@ def game_stats():
 
     cursor.close()
     #return render_template("gameStats.html", game_stats_details=game_stats_details)
-    return render_template("/game/gameStats.html", game_stats_details = game_stats_details)
+    return render_template("/gameStats.html", game_stats_details = game_stats_details)
 
 @app.route('/teamStats')
 def team_stats():
@@ -100,7 +100,7 @@ def team_stats():
         team_stats_details = cursor.fetchall()
 
     cursor.close()
-    return render_template("/team/team_stats.html", team_stats_details=team_stats_details)
+    return render_template("/team_stats.html", team_stats_details=team_stats_details)
     
 @app.route('/player/<name>')
 def player_info(name):
@@ -157,14 +157,14 @@ def franchise_info(name):
                                     JOIN play_for d 
                                         ON c.franchise = d.franchise 
                                 WHERE a.franchise='{name}'""")
-    franchise_info_details = cursor.fetchall()
-    # if result > 0:
-    #     franchise_info_details = cursor.fetchall()
-    #     print(franchise_info_details)
+    franchiseInfo_details = cursor.fetchall()
+     #if result > 0:
+      #   franchiseInfo_details = cursor.fetchall()
+      #   print(franchiseInfo_details)
     #else:
 
     cursor.close()
-    return render_template("franchiseInfo.html", franchise_info_details = franchise_info_details)
+    return render_template("franchiseInfo.html", franchiseInfo_details = franchiseInfo_details)
 
 @app.route('/city/<name>')
 def city_info(name):
@@ -174,10 +174,10 @@ def city_info(name):
 
     result = cursor.execute(f"SELECT * FROM team WHERE team.city='{name}'")
     if result > 0:
-        city_info_details = cursor.fetchall()
+        cityInfo_details = cursor.fetchall()
 
     cursor.close()
-    return render_template("cityInfo.html", city_info_details = city_info_details)
+    return render_template("cityInfo.html", cityInfo_details = cityInfo_details)
 
 @app.route('/division/<name>')
 def division_info(name):
@@ -187,10 +187,10 @@ def division_info(name):
 
     result = cursor.execute(f"SELECT division, franchise, city, founded FROM team WHERE division='{name}'")
     if result > 0:
-        division_info_details = cursor.fetchall()
+        divisionInfo_details = cursor.fetchall()
 
     cursor.close()
-    return render_template("divisionInfo.html", division_info_details = division_info_details)
+    return render_template("divisionInfo.html", divisionInfo_details = divisionInfo_details)
 
 @app.route('/season/<name>')
 def season_info(name):
