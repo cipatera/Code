@@ -131,7 +131,15 @@ def position_info(name):
     print(name)
     cursor = mysql.connection.cursor()
 
-    result = cursor.execute(f"SELECT a.position, a.name, a.DOB, a.kit_number, b.season, b.running_yards, b.throwing_yards, b.sacks, b.catches, b.touchdowns, b.punt_returns, b.field_goals, c.franchise, c.start, c.end FROM player a JOIN player_stats b ON a.name=b.name JOIN play_for c ON b.name=c.name WHERE a.position='{name}'")
+    result = cursor.execute(f"""SELECT 
+                                    a.position, a.name, a.DOB, a.kit_number, 
+                                    b.season, b.running_yards, b.throwing_yards, b.sacks, b.catches, b.touchdowns, b.punt_returns, b.field_goals, 
+                                    c.franchise, c.start, c.end 
+                                FROM player a JOIN player_stats b 
+                                        ON a.name=b.name
+                                    JOIN play_for c 
+                                        ON b.name=c.name 
+                                WHERE a.position='{name}'""")
     #result = cursor.execute(f"SELECT  FROM player a JOIN player_stats b ON a.name=b.name JOIN play_for c ON b.name=c.name WHERE a.position='{name}'")
     if result > 0:
         positionInfo_details = cursor.fetchall()
