@@ -1,54 +1,87 @@
-<table border="1" style="font-size:70%">
-    <tr>
-      <th>Name</th> <!-- 0 -->
-      <th>Season</th> <!-- 1 -->
-      <th>Wins</th> <!-- 2 -->
-      <th>Losses</th> <!-- 3 -->
-      <th>Ties</th> <!-- 4 -->
-      <th>Total Points</th> <!-- 5 -->
-      <th>Total Yards</th> <!-- 6 -->
-      <th>Touchdowns</th> <!-- 7 -->
-      <th>Field Goals</th> <!-- 8 -->
-      <th>Date of Game</th> <!-- 9 -->
-      <th>Result of Game</th> <!-- 10 -->
-      <th>Total Yards in the Game</th> <!-- 11 -->
-      <th>Total Pass Yards in Game</th> <!-- 12 -->
-      <th>Total Rush Yards in Game</th> <!-- 13 -->
-      <th>City</th> <!-- 14 -->
-      <th>Founded</th> <!-- 15 -->
-      <th>Division</th> <!-- 16 -->
-      <th>Player Name</th> <!-- 17 -->
-      <th>Player Date of Birth</th> <!-- 18 -->
-      <th>Starting Date for the Player</th> <!-- 19 -->
-      <th>Ending Date for the Player</th> <!-- 20 -->
-    </tr>
-    {% for franchiseInfo in franchiseInfo_details %}
-    <tr>
-      <td>{{franchiseInfo[0]}}</td>
-      <td><a class="info" value="season">{{franchiseInfo[1]}}</a></td>
-      <td>{{franchiseInfo[2]}}</td>
-      <td>{{franchiseInfo[3]}}</td>
-      <td>{{franchiseInfo[4]}}</td>
-      <td>{{franchiseInfo[5]}}</td>
-      <td>{{franchiseInfo[6]}}</td>
-      <td>{{franchiseInfo[7]}}</td>
-      <td>{{franchiseInfo[8]}}</td>
-      <td>{{franchiseInfo[9]}}</td>
-      <td>{{franchiseInfo[10]}}</td>
-      <td>{{franchiseInfo[11]}}</td>
-      <td>{{franchiseInfo[12]}}</td>
-      <td>{{franchiseInfo[13]}}</td>
-      <td><a class="info" value="city">{{franchiseInfo[14]}}</a></td>
-      <td>{{franchiseInfo[15]}}</td>
-      <td><a class="info" value="division">{{franchiseInfo[16]}}</a></td>
-      <td><a class="info" value="player">{{franchiseInfo[17]}}</a></td>
-      <td>{{franchiseInfo[18]}}</td>
-      <td>{{franchiseInfo[19]}}</td>
-      <td>{{franchiseInfo[20]}}</td>
-    </tr>
-    {%endfor%}
-  </table>
-  <form>
-    <input type="button" value="Back" onclick="history.back()">
-   </form>
-   <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+<title>{{team_stats[0][0]}}</title>
+<p>
+  Name: {{team_stats[0][0]}}
+  <br />
+  <a class="info" value="season">Season: {{team_stats[0][1]}}</a>
+  <br />
+  Wins:{{team_stats[0][2]}}
+  <br />
+  Losses: {{team_stats[0][3]}}
+  <br />
+  Ties:{{team_stats[0][4]}}
+  <br />
+  Total Points: {{team_stats[0][5]}}
+  <br />
+  Total Yards: {{team_stats[0][6]}}
+  <br />
+  Touchdowns: {{team_stats[0][7]}}
+  <br />
+  Field Goals: {{team_stats[0][8]}}
+  <br />
+  <a class="info" value="city">City: {{team[0][0]}}</a>
+  <br />
+  Founded: {{team[0][1]}}
+  <br />
+  <a class="info" value="division">Division: {{team[0][2]}}</a>
+  <br />
+  <a class="info" value="player">Players: </a>
+</p>
+
+<table border="1" style="font-size: 70%">
+  <tr>
+    <th>Name</th>
+    <th>Date of Birth</th>
+    <th>Kit Number</th>
+    <th>Position</th>
+    <th>Running Yards</th>
+    <th>Throwing Yards</th>
+    <th>Sacks</th>
+    <th>Catches</th>
+    <th>Touchdowns</th>
+    <th>Punt Returns</th>
+    <th>Field Goals</th>
+  </tr>
+  {% for player in player_details %}
+  <tr>
+    <td>{{player[0]}}</td>
+    <td>{{player[1]}}</td>
+    <td>{{player[2]}}</td>
+    <td>{{player[3]}}</td>
+    <td>{{player[4]}}</td>
+    <td>{{player[5]}}</td>
+    <td>{{player[6]}}</td>
+    <td>{{player[7]}}</td>
+    <td>{{player[8]}}</td>
+    <td>{{player[9]}}</td>
+    <td>{{player[10]}}</td>
+  </tr>
+  {%endfor%}
+</table>
+
+<br />
+Game Stats:
+<table border="1" style="font-size: 70%">
+  <tr>
+    <th>Date</th>
+    <th>Result</th>
+    <th>Totals Yards</th>
+    <th>Pass Yards</th>
+    <th>Rush Yards</th>
+  </tr>
+  {% for game_stats in game_stats_details %}
+  <tr>
+    <td>{{game_stats[0]}}</td>
+    <td>{{game_stats[1]}}</td>
+    <td>{{game_stats[2]}}</td>
+    <td>{{game_stats[3]}}</td>
+    <td>{{game_stats[4]}}</td>
+  </tr>
+  {%endfor%}
+</table>
+<form>
+  <input type="button" value="Back" onclick="history.back()" />
+</form>
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename='script.js') }}"
+></script>
