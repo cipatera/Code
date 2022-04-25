@@ -1,11 +1,17 @@
+<title>Play For</title>
 <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
-<table border="1" style="font-size:70%" class="sortable">
+<table border="1" style="font-size: 70%" class="sortable">
   <tr>
-    <th>Name</th> <!-- 0 -->
-    <th>Date Of Birth</th> <!-- 1 -->
-    <th>Franchise</th> <!-- 2 -->
-    <th>Start</th> <!-- 3 -->
-    <th>End</th> <!-- 4 -->
+    <th>Name</th>
+    <!-- 0 -->
+    <th>Date Of Birth</th>
+    <!-- 1 -->
+    <th>Franchise</th>
+    <!-- 2 -->
+    <th>Start</th>
+    <!-- 3 -->
+    <th>End</th>
+    <!-- 4 -->
   </tr>
   {% for play_for in play_for_details %}
   <tr>
@@ -18,6 +24,10 @@
   {%endfor%}
 </table>
 <form>
-  <input type="button" value="Back" onclick="history.back()">
- </form>\
- <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+  <input type="button" value="Back" onclick="history.back()" />
+</form>
+\
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename='script.js') }}"
+></script>
