@@ -167,7 +167,7 @@ def position_info(position_name):
     #     positionInfo_details = cursor.fetchall()
 
     cursor.close()
-    return render_template("positionInfo.html", position_info_details = position_info_details)
+    return render_template("positionInfo.html", position_info_details = position_info_details, position_name = position_name)
 
 @app.route('/franchise/<franchise>', methods=['GET','POST'])
 def franchise_info(franchise):
