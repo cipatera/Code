@@ -1,8 +1,9 @@
 <title>{{team_stats[0][0]}}</title>
 <p>
-  Name: {{team_stats[0][0]}}
+  Name: <a class="info" value="franchise"></a>{{team_stats[0][0]}}
   <br />
-  <a class="info" value="season">Season: {{team_stats[0][1]}}</a>
+  <!-- <a class="info" value="season">Season: {{team_stats[0][1]}}</a> -->
+  Season: <a class="info" value="season">{{team_stats[0][1]}}</a>
   <br />
   Wins:{{team_stats[0][2]}}
   <br />
@@ -18,16 +19,16 @@
   <br />
   Field Goals: {{team_stats[0][8]}}
   <br />
-  <a class="info" value="city">City: {{team[0][0]}}</a>
+  City: <a class="info" value="city">{{team[0][0]}}</a>
   <br />
   Founded: {{team[0][1]}}
   <br />
-  <a class="info" value="division">Division: {{team[0][2]}}</a>
+  Division: <a class="info" value="division">{{team[0][2]}}</a>
   <br />
-  <a class="info" value="player">Players: </a>
+  Players: <a class="info" value="player"></a>
 </p>
 
-<table border="1" style="font-size: 70%">
+<table border="1" style="font-size: 70%" class="sortable">
   <tr>
     <th>Name</th>
     <th>Date of Birth</th>
@@ -60,7 +61,7 @@
 
 <br />
 Game Stats:
-<table border="1" style="font-size: 70%">
+<table border="1" style="font-size: 70%" class="sortable">
   <tr>
     <th>Date</th>
     <th>Result</th>
@@ -80,8 +81,10 @@ Game Stats:
 </table>
 <form>
   <input type="button" value="Back" onclick="history.back()" />
+  <input type="button" value="Home" onclick="window.location.href='/'" />
 </form>
 <script
   type="text/javascript"
   src="{{ url_for('static', filename='script.js') }}"
 ></script>
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>

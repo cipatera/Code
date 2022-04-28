@@ -1,4 +1,6 @@
-<table border="1">
+<title>Team</title>
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+<table border="1" style="font-size: 70%" class="sortable">
   <tr>
     <th>Franchise</th>
     <th>City</th>
@@ -10,11 +12,14 @@
     <td><a class="info" value="franchise">{{team[0]}}</a></td>
     <td><a class="info" value="city">{{team[1]}}</a></td>
     <td>{{team[2]}}</td>
-    <td>{{team[3]}}</td>
+    <td><a class="info" value="division">{{team[3]}}</a></td>
   </tr>
   {%endfor%}
 </table>
 <form>
-  <input type="button" value="Back" onclick="history.back()">
- </form>
- <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+  <input type="button" value="Back" onclick="history.back()" />
+</form>
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename='script.js') }}"
+></script>
