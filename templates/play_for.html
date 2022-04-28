@@ -1,14 +1,13 @@
-<script src=
-"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-    </script>
+<input 
+  type="text" 
+  id="myInput" 
+  onkeyup="myFunction()" 
+  placeholder="Search key words/values" 
+  title="Playing For">
 <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
 <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8"/>
-<b>Search the table for Course, Fees or Type: 
-  <input id="gfg" type="text" 
-         placeholder="Search here">
-</b>
-<table border="1" style="font-size:70%" class="sortable">
-  <tr>
+<table border="1" style="width:100%" class="sortable" id="myTable">
+  <tr class = "header">
     <th>Name</th>
     <!-- 0 -->
     <th>Date Of Birth</th>
@@ -21,7 +20,6 @@
     <!-- 4 -->
   </tr>
   {% for play_for in play_for_details %}
-  <tbody id="geeks" class = "players">
   <tr>
     <td><a class="info" value="player">{{play_for[0]}}</a></td>
     <td>{{play_for[1]}}</td>
@@ -29,7 +27,6 @@
     <td class="start">{{play_for[3]}}</td>
     <td class="end">{{play_for[4]}}</td>
   </tr>
-</tbody>
   {%endfor%}
 </table>
 <form>

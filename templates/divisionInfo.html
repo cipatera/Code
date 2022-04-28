@@ -1,7 +1,7 @@
 <title>Division</title>
 <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
 <table border="1" style="width: 100%" class="sortable">
-  <tr>
+  <tr class = "header">
     <th>Division</th>
     <th>Franchise</th>
     <th>City</th>
@@ -20,7 +20,4 @@
   <input type="button" value="Back" onclick="history.back()" />
   <input type="button" value="Home" onclick="window.location.href='/'" />
 </form>
-<script
-  type="text/javascript"
-  src="{{ url_for('static', filename='script.js') }}"
-></script>
+<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>

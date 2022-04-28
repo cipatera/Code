@@ -1,7 +1,13 @@
+<input 
+  type="text" 
+  id="myInput" 
+  onkeyup="myFunction()" 
+  placeholder="Search key words/values" 
+  title="Team">
 <title>Team</title>
 <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
-<table border="1" style="width: 100%" class="sortable">
-  <tr>
+<table border="1" style="width:100%" class="sortable" id="myTable">
+  <tr class="header">
     <th>Franchise</th>
     <th>City</th>
     <th>Founded</th>
@@ -19,7 +25,4 @@
 <form>
   <input type="button" value="Back" onclick="history.back()" />
 </form>
-<script
-  type="text/javascript"
-  src="{{ url_for('static', filename='script.js') }}"
-></script>
+<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>

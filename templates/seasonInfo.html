@@ -6,8 +6,8 @@
   Team Stats:
 </p>
 
-<table border="1" style="width: 100%" class="sortable">
-  <tr>
+<table border="1" style="width:100%" class="sortable" id="myTable">
+  <tr class="header">
     <th>Franchise</th>
     <th>Wins</th>
     <th>Losses</th>
@@ -32,8 +32,8 @@
 </table>
 <br />
 Player Stats:
-<table border="1" style="width: 100%" class="sortable">
-  <tr>
+<table border="1" style="width:100%" class="sortable" id="myTable">
+  <tr class="header">
     <th>Player Name</th>
     <th>Running Yards</th>
     <th>Throwing Yards</th>
@@ -60,7 +60,4 @@ Player Stats:
   <input type="button" value="Back" onclick="history.back()" />
   <input type="button" value="Home" onclick="window.location.href='/'" />
 </form>
-<script
-  type="text/javascript"
-  src="{{ url_for('static', filename='script.js') }}"
-></script>
+<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>

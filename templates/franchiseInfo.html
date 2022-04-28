@@ -1,3 +1,4 @@
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
 <title>{{team_stats[0][0]}}</title>
 <p>
   Name: <a class="info" value="franchise"></a>{{team_stats[0][0]}}
@@ -28,7 +29,7 @@
   Players: <a class="info" value="player"></a>
 </p>
 
-<table border="1" style="width: 100%" class="sortable">
+<table border="1" style="width:100%" class="sortable">
   <tr>
     <th>Name</th>
     <th>Date of Birth</th>
@@ -83,8 +84,5 @@ Game Stats:
   <input type="button" value="Back" onclick="history.back()" />
   <input type="button" value="Home" onclick="window.location.href='/'" />
 </form>
-<script
-  type="text/javascript"
-  src="{{ url_for('static', filename='script.js') }}"
-></script>
-<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+
