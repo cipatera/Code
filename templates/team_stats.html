@@ -1,12 +1,13 @@
-<input 
-  type="text" 
-  id="myInput" 
-  onkeyup="myFunction()" 
-  placeholder="Search key words/values" 
-  title="Team Stats">
+<input
+  type="text"
+  id="myInput"
+  onkeyup="myFunction()"
+  placeholder="Search key words/values"
+  title="Team Stats"
+/>
 <title>Team Stats</title>
 <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
-<table border="1" style="width:100%" class="sortable" id="myTable">
+<table border="1" style="width: 100%" class="sortable" id="myTable">
   <tr class="header">
     <th>Franchise</th>
     <th>Season</th>
@@ -21,7 +22,7 @@
   {% for team_stats in team_stats_details %}
 
   <tr>
-    <td>{{team_stats[0]}}</td>
+    <td><a class="info" value="franchise">{{team_stats[0]}}</a></td>
     <td><a class="info" value="season">{{team_stats[1]}}</a></td>
     <td>{{team_stats[2]}}</td>
     <td>{{team_stats[3]}}</td>
@@ -34,6 +35,9 @@
   {%endfor%}
 </table>
 <form>
-  <input type="button" value="Back" onclick="history.back()">
- </form>
- <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+  <input type="button" value="Back" onclick="history.back()" />
+</form>
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename='script.js') }}"
+></script>

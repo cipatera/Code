@@ -1,72 +1,82 @@
 <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
-<br>  
-Season Played: <form method="POST" action="/submit">
-  <select name="stats" id="stats">
-      <option value="SELECT * FROM position_info WHERE start >= 2000 ^ end <= 2000" selected>2000</option>
-      <option value="team" selected>2001</option>
-      <option value="game" selected>2002</option>
-      <option value="player_stats" selected>2003</option>
-      <option value="team_stats" selected>2004</option>
-      <option value="game_stats" selected>2005</option>
-      <option value="play_for" selected>2006</option>
-      <option value="play_for" selected>2007</option>
-      <option value="play_for" selected>2008</option>
-      <option value="play_for" selected>2009</option>
-      <option value="play_for" selected>2010</option>
-      <option value="play_for" selected>2011</option>
-      <option value="play_for" selected>2012</option>
-      <option value="play_for" selected>2013</option>
-      <option value="play_for" selected>2014</option>
-      <option value="play_for" selected>2015</option>
-      <option value="play_for" selected>2016</option>
-      <option value="play_for" selected>2017</option>
-      <option value="play_for" selected>2018</option>
-      <option value="play_for" selected>2019</option>
-      <option value="play_for" selected>2020</option>
-      <option value="play_for" selected>2021</option>
-  </select>
-  <input type="submit"/>
-</br>
-<table border="1" style="width:100%" class="sortable" id="myTable">
-  <tr class="header">
-      <th>Position</th> <!-- 0 -->
-      <th>Name</th> <!-- 1 -->
-      <th>Date of Birth</th> <!-- 2 -->
-      <th>Kit Number</th> <!-- 3 -->
-      <th>Season</th> <!-- 4 -->
-      <th>Total Running Yards</th> <!-- 5 -->
-      <th>Total Throwing Yards</th> <!-- 6 -->
-      <th>Total Sacks</th> <!-- 7 -->
-      <th>Total Catch</th> <!-- 8 -->
-      <th>Total Touchdowns</th> <!-- 9 -->
-      <th>Total Punt Returns</th> <!-- 10 -->
-      <th>Total Field Goals</th> <!-- 11 -->
-      <th>Franchise</th> <!-- 12 -->
-      <th>Starting Year</th> <!-- 13 -->
-      <th>Ending Year</th> <!-- 14 -->
-    </tr>
-    {% for positionInfo in positionInfo_details %}
-    <tr>
-      <td>{{positionInfo[0]}}</td>
-      <td><a class="info" value="player">{{positionInfo[1]}}</a></td>
-      <td>{{positionInfo[2]}}</td>
-      <td>{{positionInfo[3]}}</td>
-      <td><a class="info" value="season">{{positionInfo[4]}}</a></td>
-      <td>{{positionInfo[5]}}</td>
-      <td>{{positionInfo[6]}}</td>
-      <td>{{positionInfo[7]}}</td>
-      <td>{{positionInfo[8]}}</td>
-      <td>{{positionInfo[9]}}</td>
-      <td>{{positionInfo[10]}}</td>
-      <td>{{positionInfo[11]}}</td>
-      <td><a class="info" value="franchise">{{positionInfo[12]}}</a></td>
-      <td>{{positionInfo[13]}}</td>
-      <td>{{positionInfo[14]}}</td>
-    </tr>
-    {%endfor%}
-  </table>
-  <form>
-    <input type="button" value="Back" onclick="history.back()">
-    <input type="button" value="Home" onclick="window.location.href='/'">
-   </form>
-   <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+<p>
+  Position: {{position_name}}
+  <br />
+  <a class="info" value="season"> Season:</a>
+  <form method="POST" action="/submit">
+    <select name="stats" id="stats">
+        <option value="SELECT * FROM position_info WHERE start >= 2000 ^ end <= 2000" selected>2000</option>
+        <option value="team" selected>2001</option>
+        <option value="game" selected>2002</option>
+        <option value="player_stats" selected>2003</option>
+        <option value="team_stats" selected>2004</option>
+        <option value="game_stats" selected>2005</option>
+        <option value="play_for" selected>2006</option>
+        <option value="play_for" selected>2007</option>
+        <option value="play_for" selected>2008</option>
+        <option value="play_for" selected>2009</option>
+        <option value="play_for" selected>2010</option>
+        <option value="play_for" selected>2011</option>
+        <option value="play_for" selected>2012</option>
+        <option value="play_for" selected>2013</option>
+        <option value="play_for" selected>2014</option>
+        <option value="play_for" selected>2015</option>
+        <option value="play_for" selected>2016</option>
+        <option value="play_for" selected>2017</option>
+        <option value="play_for" selected>2018</option>
+        <option value="play_for" selected>2019</option>
+        <option value="play_for" selected>2020</option>
+        <option value="play_for" selected>2021</option>
+    </select>
+    <input type="submit"/>
+</p>
+<br />
+<table border="1" style="font-size: 70%" class="sortable">
+  <tr>
+    <th>Name</th>
+    <!-- 1 -->
+    <th>Date of Birth</th>
+    <!-- 2 -->
+    <th>Kit Number</th>
+    <!-- 3 -->
+    <th>Total Running Yards</th>
+    <!-- 5 -->
+    <th>Total Throwing Yards</th>
+    <!-- 6 -->
+    <th>Total Sacks</th>
+    <!-- 7 -->
+    <th>Total Catches</th>
+    <!-- 8 -->
+    <th>Total Touchdowns</th>
+    <!-- 9 -->
+    <th>Total Punt Returns</th>
+    <!-- 10 -->
+    <th>Total Field Goals</th>
+    <!-- 11 -->
+    <th>Franchise</th>
+    <!-- 12 -->
+  </tr>
+  {% for positionInfo in position_info_details %}
+  <tr>
+    <td><a class="info" value="player">{{positionInfo[0]}}</a></td>
+    <td>{{positionInfo[1]}}</td>
+    <td>{{positionInfo[2]}}</td>
+    <td>{{positionInfo[3]}}</td>
+    <td>{{positionInfo[4]}}</td>
+    <td>{{positionInfo[5]}}</td>
+    <td>{{positionInfo[6]}}</td>
+    <td>{{positionInfo[7]}}</td>
+    <td>{{positionInfo[8]}}</td>
+    <td>{{positionInfo[9]}}</td>
+    <td><a class="info" value="franchise">{{positionInfo[10]}}</a></td>
+  </tr>
+  {%endfor%}
+</table>
+<form>
+  <input type="button" value="Back" onclick="history.back()" />
+  <input type="button" value="Home" onclick="window.location.href='/'" />
+</form>
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename='script.js') }}"
+></script>

@@ -18,8 +18,6 @@ def index():
 def submit():
     if request.method == 'POST':
         dropdown_menu = request.form['stats']
-        #/franchise/<franchise>/<season>
-        #dropdown_menu = request.form.get('stats')
         print(dropdown_menu)
         return redirect(url_for(f'{dropdown_menu}'))
 
@@ -167,7 +165,9 @@ def position_info(position_name):
     #     positionInfo_details = cursor.fetchall()
 
     cursor.close()
-    return render_template("positionInfo.html", position_info_details = position_info_details)
+    return render_template("positionInfo.html", 
+                            position_info_details = position_info_details, 
+                            position_name = position_name)
 
 @app.route('/franchise/<franchise>', methods=['GET','POST'])
 def franchise_info(franchise):
