@@ -1,0 +1,39 @@
+<title>Week {{week}}</title>
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+<input
+  type="text"
+  id="myInput"
+  onkeyup="myFunction()"
+  placeholder="Search key words/values"
+  title="Week Info"
+/>
+Week: {{week}}
+<br />
+<table border="1" style="width: 100%" class="sortable">
+  <tr class="header">
+    <th>Home Team</th>
+    <!-- 0 -->
+    <th>Away Team</th>
+    <!-- 1 -->
+    <th>Home Points</th>
+    <!-- 2 -->
+    <th>Away Points</th>
+    <!-- 3 -->
+  </tr>
+  {% for week_stats in week_stats_details %}
+  <tr>
+    <td><a class="info" value="franchise">{{week_stats[0]}}</a></td>
+    <td><a class="info" value="franchise">{{week_stats[1]}}</a></td>
+    <td>{{week_stats[2]}}</td>
+    <td>{{week_stats[3]}}</td>
+  </tr>
+  {%endfor%}
+</table>
+<form>
+  <input type="button" value="Back" onclick="history.back()" />
+  <input type="button" value="Home" onclick="window.location.href='/'" />
+</form>
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename='script.js') }}"
+></script>
