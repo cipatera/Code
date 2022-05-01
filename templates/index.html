@@ -1,93 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <title>NFL Stats</title>
-  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
-  <head>
+<title>NFL Stats</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8"/>
+<head>
     <title>NFL Stats</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css" />
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body>
-    <div class="head">
-      <img
-        src="images/cwru-white-logo.png"
-        width="140"
-        height="30"
-        alt="Nfl logo"
-      />
-    </div>
-    <div class="head">
-      <img
-        src="images/nfllogo.PNG"
-        width="250"
-        height="130"
-        alt="Nfl logo"
-        align="right"
-      />
-    </div>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<div class="head">
+    <img src="https://case.edu/beyond/assets/img/cwru-white-logo.png" width="140" height="30" alt="CWRU Logo">
+</div>
+<div class="head">
+    <img src="https://cdn.shopify.com/s/files/1/0480/9470/7866/collections/6ee2c6b7a845de4046c7afb85c2e88eb.jpg?v=1646869409"
+         width="250" height="130" alt="NFL logo" align="right">
+</div>
 
-    <div class="head">
-      <div align="left">
-        <br />
-        <p style="color: #ffffff">
-          <br />
-          ███╗░░██╗███████╗██╗░░░░░  ░██████╗████████╗░█████╗░████████╗░██████╗  ██████╗░██████╗░<br />
-          ████╗░██║██╔════╝██║░░░░░  ██╔════╝╚══██╔══╝██╔══██╗╚══██╔══╝██╔════╝  ██╔══██╗██╔══██╗<br />
-          ██╔██╗██║█████╗░░██║░░░░░  ╚█████╗░░░░██║░░░███████║░░░██║░░░╚█████╗░  ██║░░██║██████╦╝<br />
-          ██║╚████║██╔══╝░░██║░░░░░  ░╚═══██╗░░░██║░░░██╔══██║░░░██║░░░░╚═══██╗  ██║░░██║██╔══██╗<br />
-          ██║░╚███║██║░░░░░███████╗  ██████╔╝░░░██║░░░██║░░██║░░░██║░░░██████╔╝  ██████╔╝██████╦╝<br />
-          <br />
+<div class="head">
+    <div align="left">
+        <br>
+        <p style="color:#ffffff">
+            <br>
+            . ███╗░░██╗███████╗██╗░░░░░  ░██████╗████████╗░█████╗░████████╗░██████╗  ██████╗░██████╗░<br>
+            . ████╗░██║██╔════╝██║░░░░░  ██╔════╝╚══██╔══╝██╔══██╗╚══██╔══╝██╔════╝  ██╔══██╗██╔══██╗<br>
+            . ██╔██╗██║█████╗░░██║░░░░░  ╚█████╗░░░░██║░░░███████║░░░██║░░░╚█████╗░  ██║░░██║██████╦╝<br>
+            . ██║╚████║██╔══╝░░██║░░░░░  ░╚═══██╗░░░██║░░░██╔══██║░░░██║░░░░╚═══██╗  ██║░░██║██╔══██╗<br>
+            . ██║░╚███║██║░░░░░███████╗  ██████╔╝░░░██║░░░██║░░██║░░░██║░░░██████╔╝  ██████╔╝██████╦╝<br>
+            <br>
         </p>
-      </div>
     </div>
-    <h1 class="big">
-      NFL Statistics Database: Vinayak Mathur, Tobias Strader, Eunseo Choo,
-      Jalen Xu
-    </h1>
-    <h3>
-      Both fans and Coaching staff need fast access to statistics related to
-      football <br />
-      Fans: Learn more about their team and favorite players <br />
-      Coaches: Make decisions about players<br />
-      What needs to be presented:<br />
-      Players, what teams they played for, and their stats<br />
-      Teams and their per season stats<br />
-      Games, their scores, and team specific stats related to each game<br />
-    </h3>
+</div>
+<h1 class="big">NFL Statistics Database: Vinayak Mathur, Tobias Strader, Eunseo Choo, Jalen Xu</h1>
+<h3>Both fans and Coaching staff need fast access to statistics related to football <br>
+    Fans: Learn more about their team and favorite players <br>
+    Coaches: Make decisions about players<br>
+    What needs to be presented:<br>
+    Players, what teams they played for, and their stats<br>
+    Teams and their per season stats<br>
+    Games, their scores, and team specific stats related to each game<br>
+</h3>
 
-    <form method="POST" action="/submit">
-      <select name="stats" id="stats">
+<form method="POST" action="/submit">
+    <select name="stats" id="stats">
         <option value="player" selected>Players</option>
         <option value="team" selected>Teams</option>
         <option value="game" selected>Games</option>
         <option value="player_stats" selected>Player Stats</option>
         <option value="team_stats" selected>Team Stats</option>
         <option value="game_stats" selected>Game Stats</option>
-      </select>
-      <input type="submit" />
-    </form>
-    <img
-      src="images/grass.png"
-      width="506.67"
-      height="50"
-      alt="Nfl logo"
-      align="left"
-    />
-    <img
-      src="images/grass.png"
-      width="506.67"
-      height="50"
-      alt="Nfl logo"
-      align="center"
-    />
-    <img
-      src="images/grass.png"
-      width="506.67"
-      height="50"
-      alt="Nfl logo"
-      align="right"
-    />
-  </body>
+    </select>
+    <input type="submit"/>
+</form>
+<img src="https://tritonenviro.com/triton_wp/wp-content/uploads/grass-footer.png" width=506.67 height="50"
+     alt="grass footer" align="left">
+<img src="https://tritonenviro.com/triton_wp/wp-content/uploads/grass-footer.png" width=506.67 height="50"
+     alt="grass footer" align="center">
+<img src="https://tritonenviro.com/triton_wp/wp-content/uploads/grass-footer.png" width=506.67 height="50"
+     alt="grass footer" align="right">
+</body>
 </html>
