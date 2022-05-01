@@ -5,7 +5,11 @@ Filter: <input
   onkeyup="myFunction()" 
   placeholder="Search key words/values" 
   title="Players">
-
+  <form>
+    <input type="button" value="Back" onclick="history.back()" />
+    <input type="button" value="Home" onclick="window.location.href='/'" />
+  </form>
+  <title>Player</title>
   <table border="1" style="width:100%" class="sortable" id="myTable">
   <tr class="header">
     <th>Name</th>

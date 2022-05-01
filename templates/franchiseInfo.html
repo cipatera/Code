@@ -1,9 +1,18 @@
+<input 
+  type="text" 
+  id="myInput" 
+  onkeyup="myFunction()" 
+  placeholder="Search key words/values" 
+  title="FranchiseInfo">
+  <form>
+    <input type="button" value="Back" onclick="history.back()" />
+    <input type="button" value="Home" onclick="window.location.href='/'" />
+  </form>
 <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
 <title>{{team_stats[0][0]}} Information</title>
 <p>
   Name: <a class="info" value="franchise"></a>{{team_stats[0][0]}}
   <br />
-  <!-- <a class="info" value="season">Season: {{team_stats[0][1]}}</a> -->
   Season: <a class="info" value="season">{{team_stats[0][1]}}</a>
   <br />
   Wins:{{team_stats[0][2]}}
@@ -29,8 +38,8 @@
   Players: <a class="info" value="player"></a>
 </p>
 
-<table border="1" style="width:100%" class="sortable">
-  <tr>
+<table border="1" style="width:100%" class="sortable" id="myTable">
+  <tr class = "header">
     <th>Name</th>
     <th>Date of Birth</th>
     <th>Kit Number</th>
@@ -62,8 +71,8 @@
 
 <br />
 Game Stats:
-<table border="1" style="width: 100%" class="sortable">
-  <tr>
+<table border="1" style="width:100%" class="sortable" id="myTable">
+  <tr class = "header">
     <th>Date</th>
     <th>Result</th>
     <th>Totals Yards</th>

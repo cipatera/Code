@@ -1,6 +1,16 @@
-<title>Division</title>
+<input 
+  type="text" 
+  id="myInput" 
+  onkeyup="myFunction()" 
+  placeholder="Search key words/values" 
+  title="DivisioinInfo">
+  <form>
+    <input type="button" value="Back" onclick="history.back()" />
+    <input type="button" value="Home" onclick="window.location.href='/'" />
+  </form>
+<title>Division Information</title>
 <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
-<table border="1" style="width: 100%" class="sortable">
+<table border="1" style="width:100%" class="sortable" id="myTable">
   <tr class = "header">
     <th>Division</th>
     <th>Franchise</th>
