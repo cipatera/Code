@@ -112,13 +112,14 @@ def player_info(name):
                                 AND p.DOB = pf.DOB
                                 AND pf.name = '{name}'""")
     play_for_team_history = cursor.fetchall()
+    print(play_for_team_history)
 
     cursor.close()
     return render_template("playerInfo.html", 
                             player_info_details = player_info_details, 
                             play_for_team_history = play_for_team_history, 
                             name = name,
-                            DOB = play_for_team_history[0][-1])
+                            DOB = play_for_team_history[0][3])
 
 @app.route('/position/<position_name>',methods=['GET','POST'])
 def position_info(position_name):
@@ -244,6 +245,16 @@ def week_info(week):
     return render_template("weekInfo.html", 
                             week_stats_details = week_stats_details,
                             week = week)
+@app.route('/play_for')
+def play_for():
+    cursor = mysql.connection.cursor()
+
+    result = cursor.execute("SELECT * FROM play_for")
+    if result > 0:
+        play_for_details = cursor.fetchall()
+
+    cursor.close()
+    return render_template("play_for.html", play_for_details=play_for_details)
 
 
 
