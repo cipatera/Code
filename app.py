@@ -1,6 +1,7 @@
 from contextlib import nullcontext
 from flask import Flask, render_template, request, redirect, url_for
 from flask_mysqldb import MySQL
+
 app = Flask(__name__)
 
 app.config['MYSQL_HOST'] = 'localhost'
@@ -10,9 +11,11 @@ app.config['MYSQL_DB'] = 'nflstats'
 
 mysql = MySQL(app)
 
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     return render_template("index.html")
+
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -20,6 +23,7 @@ def submit():
         dropdown_menu = request.form['stats']
         print(dropdown_menu)
         return redirect(url_for(f'{dropdown_menu}'))
+
 
 @app.route('/player')
 def player():
@@ -32,6 +36,7 @@ def player():
     cursor.close()
     return render_template("/player.html", player_details=player_details)
 
+
 @app.route('/team')
 def team():
     cursor = mysql.connection.cursor()
@@ -42,6 +47,7 @@ def team():
 
     cursor.close()
     return render_template("/team.html", team_details=team_details)
+
 
 @app.route('/game')
 def game():
@@ -54,6 +60,7 @@ def game():
     cursor.close()
     return render_template("/game.html", game_details=game_details)
 
+
 @app.route('/playerStats')
 def player_stats():
     cursor = mysql.connection.cursor()
@@ -65,31 +72,34 @@ def player_stats():
     cursor.close()
     return render_template("/playerStats.html", player_stats_details=player_stats_details)
 
+
 @app.route('/gameStats', methods=['GET', 'POST'])
 def game_stats():
     cursor = mysql.connection.cursor()
 
-    #result = cursor.execute("SELECT * FROM game_stats")
+    # result = cursor.execute("SELECT * FROM game_stats")
 
     result = cursor.execute("SELECT * FROM game_stats")
     if result > 0:
         game_stats_details = cursor.fetchall()
 
     cursor.close()
-    #return render_template("gameStats.html", game_stats_details=game_stats_details)
-    return render_template("/gameStats.html", game_stats_details = game_stats_details)
+    # return render_template("gameStats.html", game_stats_details=game_stats_details)
+    return render_template("/gameStats.html", game_stats_details=game_stats_details)
+
 
 @app.route('/teamStats')
 def team_stats():
     cursor = mysql.connection.cursor()
     result = cursor.execute("SELECT * FROM team_stats")
-    #team_stats_details = cursor.fetchall()
+    # team_stats_details = cursor.fetchall()
     if result > 0:
         team_stats_details = cursor.fetchall()
 
     cursor.close()
     return render_template("/team_stats.html", team_stats_details=team_stats_details)
-    
+
+
 @app.route('/player/<name>')
 def player_info(name):
     print(name)
@@ -115,15 +125,16 @@ def player_info(name):
     print(play_for_team_history)
 
     cursor.close()
-    return render_template("playerInfo.html", 
-                            player_info_details = player_info_details, 
-                            play_for_team_history = play_for_team_history, 
-                            name = name,
-                            DOB = play_for_team_history[0][3])
+    return render_template("playerInfo.html",
+                           player_info_details=player_info_details,
+                           play_for_team_history=play_for_team_history,
+                           name=name,
+                           DOB=play_for_team_history[0][3])
 
-@app.route('/position/<position_name>',methods=['GET','POST'])
+
+@app.route('/position/<position_name>', methods=['GET', 'POST'])
 def position_info(position_name):
-    #print(name)
+    # print(name)
     cursor = mysql.connection.cursor()
 
     cursor.execute(f"""SELECT 
@@ -145,20 +156,21 @@ def position_info(position_name):
     #     positionInfo_details = cursor.fetchall()
 
     cursor.close()
-    return render_template("positionInfo.html", 
-                            position_info_details = position_info_details, 
-                            position_name = position_name)
+    return render_template("positionInfo.html",
+                           position_info_details=position_info_details,
+                           position_name=position_name)
 
-@app.route('/franchise/<franchise>', methods=['GET','POST'])
+
+@app.route('/franchise/<franchise>', methods=['GET', 'POST'])
 def franchise_info(franchise):
-    #print(franchise)
+    # print(franchise)
     cursor = mysql.connection.cursor()
 
     cursor.execute(f"""SELECT *
                         FROM team_stats
                         WHERE franchise = '{franchise}'""")
     team_stats = cursor.fetchall()
-    #print(team_stats[0])
+    # print(team_stats[0])
 
     cursor.execute(f"""SELECT city, founded, division
                         FROM team
@@ -177,7 +189,7 @@ def franchise_info(franchise):
                             JOIN player_stats ps
                                 ON p.name = ps.name""")
     player_details = cursor.fetchall()
-    #print('PLAYER: ' + str(player_details))
+    # print('PLAYER: ' + str(player_details))
 
     cursor.execute(f"""SELECT gs.date, gs.result, gs.total_yards, gs.pass_yards, gs.rush_yards,
                             g.home_team, g.away_team, g.home_points, g.away_points
@@ -190,17 +202,17 @@ def franchise_info(franchise):
     game_stats_details = cursor.fetchall()
 
     cursor.close()
-    return render_template("franchiseInfo.html", 
-                            game_stats_details = game_stats_details, 
-                            team_stats = team_stats, 
-                            team = team,
-                            player_details = player_details)
+    return render_template("franchiseInfo.html",
+                           game_stats_details=game_stats_details,
+                           team_stats=team_stats,
+                           team=team,
+                           player_details=player_details)
+
 
 @app.route('/division/<name>')
 def division_info(name):
     print(name)
     cursor = mysql.connection.cursor()
-
 
     result = cursor.execute(f"""SELECT division, franchise, city, founded 
                                 FROM team 
@@ -209,11 +221,12 @@ def division_info(name):
         divisionInfo_details = cursor.fetchall()
 
     cursor.close()
-    return render_template("divisionInfo.html", divisionInfo_details = divisionInfo_details)
+    return render_template("divisionInfo.html", divisionInfo_details=divisionInfo_details)
+
 
 @app.route('/season/<season>')
 def season_info(season):
-    #print(name)
+    # print(name)
     cursor = mysql.connection.cursor()
 
     cursor.execute(f"""SELECT franchise, wins, losses, ties, total_points, total_yards, touchdowns, fieldgoals
@@ -221,17 +234,17 @@ def season_info(season):
                         WHERE season = {season}""")
     team_stats_details = cursor.fetchall()
 
-
     cursor.execute(f"""SELECT name, running_yards, throwing_yards, sacks, catches, touchdowns, punt_returns, field_goals
                         FROM player_stats
                         WHERE season = {season}""")
     player_stats_details = cursor.fetchall()
 
     cursor.close()
-    return render_template("seasonInfo.html", 
-                            team_stats_details = team_stats_details, 
-                            player_stats_details = player_stats_details, 
-                            season = season)
+    return render_template("seasonInfo.html",
+                           team_stats_details=team_stats_details,
+                           player_stats_details=player_stats_details,
+                           season=season)
+
 
 @app.route('/week/<week>')
 def week_info(week):
@@ -242,9 +255,11 @@ def week_info(week):
                         AND week = {week}""")
     week_stats_details = cursor.fetchall()
     cursor.close()
-    return render_template("weekInfo.html", 
-                            week_stats_details = week_stats_details,
-                            week = week)
+    return render_template("weekInfo.html",
+                           week_stats_details=week_stats_details,
+                           week=week)
+
+
 @app.route('/play_for')
 def play_for():
     cursor = mysql.connection.cursor()
@@ -257,8 +272,5 @@ def play_for():
     return render_template("play_for.html", play_for_details=play_for_details)
 
 
-
-
 if __name__ == "__main__":
-    app.run(debug = True)
-
+    app.run(debug=True)
