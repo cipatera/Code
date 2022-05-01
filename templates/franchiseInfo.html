@@ -1,90 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>{{team_stats[0][0]}}</title>
+<link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8"/>
+<head>
+    <title>{{team_stats[0][0]}}</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css"/>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+<body>
+<div class="head">
+    <img src="https://cdn.shopify.com/s/files/1/0480/9470/7866/collections/6ee2c6b7a845de4046c7afb85c2e88eb.jpg?v=1646869409"
+         width="58" height=" 30" alt="NFL logo">
+    <img src="https://case.edu/beyond/assets/img/cwru-white-logo.png" width="140" height="30" alt="CWRU Logo"
+         align="right">
+
+</div>
+
+
 <title>{{team_stats[0][0]}}</title>
 <p>
-  Name: <a class="info" value="franchise"></a>{{team_stats[0][0]}}
-  <br />
-  <!-- <a class="info" value="season">Season: {{team_stats[0][1]}}</a> -->
-  Season: <a class="info" value="season">{{team_stats[0][1]}}</a>
-  <br />
-  Wins:{{team_stats[0][2]}}
-  <br />
-  Losses: {{team_stats[0][3]}}
-  <br />
-  Ties:{{team_stats[0][4]}}
-  <br />
-  Total Points: {{team_stats[0][5]}}
-  <br />
-  Total Yards: {{team_stats[0][6]}}
-  <br />
-  Touchdowns: {{team_stats[0][7]}}
-  <br />
-  Field Goals: {{team_stats[0][8]}}
-  <br />
-  City: <a class="info" value="city">{{team[0][0]}}</a>
-  <br />
-  Founded: {{team[0][1]}}
-  <br />
-  Division: <a class="info" value="division">{{team[0][2]}}</a>
-  <br />
-  Players: <a class="info" value="player"></a>
+    Name: <a class="info" value="franchise"></a>{{team_stats[0][0]}}
+    <br/>
+    <!-- <a class="info" value="season">Season: {{team_stats[0][1]}}</a> -->
+    Season: <a class="info" value="season">{{team_stats[0][1]}}</a>
+    <br/>
+    Wins:{{team_stats[0][2]}}
+    <br/>
+    Losses: {{team_stats[0][3]}}
+    <br/>
+    Ties:{{team_stats[0][4]}}
+    <br/>
+    Total Points: {{team_stats[0][5]}}
+    <br/>
+    Total Yards: {{team_stats[0][6]}}
+    <br/>
+    Touchdowns: {{team_stats[0][7]}}
+    <br/>
+    Field Goals: {{team_stats[0][8]}}
+    <br/>
+    City: <a class="info" value="city">{{team[0][0]}}</a>
+    <br/>
+    Founded: {{team[0][1]}}
+    <br/>
+    Division: <a class="info" value="division">{{team[0][2]}}</a>
+    <br/>
+    Players: <a class="info" value="player"></a>
 </p>
 
 <table border="1" style="font-size: 70%" class="sortable">
-  <tr>
-    <th>Name</th>
-    <th>Date of Birth</th>
-    <th>Kit Number</th>
-    <th>Position</th>
-    <th>Running Yards</th>
-    <th>Throwing Yards</th>
-    <th>Sacks</th>
-    <th>Catches</th>
-    <th>Touchdowns</th>
-    <th>Punt Returns</th>
-    <th>Field Goals</th>
-  </tr>
-  {% for player in player_details %}
-  <tr>
-    <td>{{player[0]}}</td>
-    <td>{{player[1]}}</td>
-    <td>{{player[2]}}</td>
-    <td>{{player[3]}}</td>
-    <td>{{player[4]}}</td>
-    <td>{{player[5]}}</td>
-    <td>{{player[6]}}</td>
-    <td>{{player[7]}}</td>
-    <td>{{player[8]}}</td>
-    <td>{{player[9]}}</td>
-    <td>{{player[10]}}</td>
-  </tr>
-  {%endfor%}
+    <tr>
+        <th>Name</th>
+        <th>Date of Birth</th>
+        <th>Kit Number</th>
+        <th>Position</th>
+        <th>Running Yards</th>
+        <th>Throwing Yards</th>
+        <th>Sacks</th>
+        <th>Catches</th>
+        <th>Touchdowns</th>
+        <th>Punt Returns</th>
+        <th>Field Goals</th>
+    </tr>
+    {% for player in player_details %}
+    <tr>
+        <td>{{player[0]}}</td>
+        <td>{{player[1]}}</td>
+        <td>{{player[2]}}</td>
+        <td>{{player[3]}}</td>
+        <td>{{player[4]}}</td>
+        <td>{{player[5]}}</td>
+        <td>{{player[6]}}</td>
+        <td>{{player[7]}}</td>
+        <td>{{player[8]}}</td>
+        <td>{{player[9]}}</td>
+        <td>{{player[10]}}</td>
+    </tr>
+    {%endfor%}
 </table>
 
-<br />
+<br/>
 Game Stats:
 <table border="1" style="font-size: 70%" class="sortable">
-  <tr>
-    <th>Date</th>
-    <th>Result</th>
-    <th>Totals Yards</th>
-    <th>Pass Yards</th>
-    <th>Rush Yards</th>
-  </tr>
-  {% for game_stats in game_stats_details %}
-  <tr>
-    <td>{{game_stats[0]}}</td>
-    <td>{{game_stats[1]}}</td>
-    <td>{{game_stats[2]}}</td>
-    <td>{{game_stats[3]}}</td>
-    <td>{{game_stats[4]}}</td>
-  </tr>
-  {%endfor%}
+    <tr>
+        <th>Date</th>
+        <th>Result</th>
+        <th>Totals Yards</th>
+        <th>Pass Yards</th>
+        <th>Rush Yards</th>
+    </tr>
+    {% for game_stats in game_stats_details %}
+    <tr>
+        <td>{{game_stats[0]}}</td>
+        <td>{{game_stats[1]}}</td>
+        <td>{{game_stats[2]}}</td>
+        <td>{{game_stats[3]}}</td>
+        <td>{{game_stats[4]}}</td>
+    </tr>
+    {%endfor%}
 </table>
 <form>
-  <input type="button" value="Back" onclick="history.back()" />
-  <input type="button" value="Home" onclick="window.location.href='/'" />
+    <input type="button" value="Back" onclick="history.back()"/>
+    <input type="button" value="Home" onclick="window.location.href='/'"/>
 </form>
 <script
-  type="text/javascript"
-  src="{{ url_for('static', filename='script.js') }}"
+        type="text/javascript"
+        src="{{ url_for('static', filename='script.js') }}"
 ></script>
-<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+
+<img src="https://tritonenviro.com/triton_wp/wp-content/uploads/grass-footer.png" width=506.67 height="50"
+     alt="grass footer" align="left">
+<img src="https://tritonenviro.com/triton_wp/wp-content/uploads/grass-footer.png" width=506.67 height="50"
+     alt="grass footer" align="center">
+<img src="https://tritonenviro.com/triton_wp/wp-content/uploads/grass-footer.png" width=506.67 height="50"
+     alt="grass footer" align="right">
+</body>

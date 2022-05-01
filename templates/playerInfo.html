@@ -1,66 +1,66 @@
 <title>{{name}} Info</title>
 <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
 Name: {{name}}
-<br />
+<br/>
 Date of Birth: {{DOB}}
 <table border="1" style="font-size: 70%" class="sortable">
-  <tr>
-    <th>Kit Number</th>
+    <tr>
+        <th>Kit Number</th>
 
-    <th>Position</th>
+        <th>Position</th>
 
-    <th>Season</th>
+        <th>Season</th>
 
-    <th>Total Running Yards</th>
+        <th>Total Running Yards</th>
 
-    <th>Total Throwing Yards</th>
+        <th>Total Throwing Yards</th>
 
-    <th>Total Sacks</th>
+        <th>Total Sacks</th>
 
-    <th>Total Catch</th>
+        <th>Total Catch</th>
 
-    <th>Total Touchdowns</th>
+        <th>Total Touchdowns</th>
 
-    <th>Total Punt Returns</th>
+        <th>Total Punt Returns</th>
 
-    <th>Total Field Goals</th>
-  </tr>
+        <th>Total Field Goals</th>
+    </tr>
 
-  {% for player_info in player_info_details %}
-  <tr>
-    <td>{{player_info[0]}}</td>
-    <td><a class="info" value="position">{{player_info[1]}}</a></td>
-    <td><a class="info" value="season">{{player_info[2]}}</a></td>
-    <td>{{player_info[3]}}</td>
-    <td>{{player_info[4]}}</td>
-    <td>{{player_info[5]}}</td>
-    <td>{{player_info[6]}}</td>
-    <td>{{player_info[7]}}</td>
-    <td>{{player_info[8]}}</td>
-    <td>{{player_info[9]}}</td>
-  </tr>
-  {%endfor%}
+    {% for player_info in player_info_details %}
+    <tr>
+        <td>{{player_info[0]}}</td>
+        <td><a class="info" value="position">{{player_info[1]}}</a></td>
+        <td><a class="info" value="season">{{player_info[2]}}</a></td>
+        <td>{{player_info[3]}}</td>
+        <td>{{player_info[4]}}</td>
+        <td>{{player_info[5]}}</td>
+        <td>{{player_info[6]}}</td>
+        <td>{{player_info[7]}}</td>
+        <td>{{player_info[8]}}</td>
+        <td>{{player_info[9]}}</td>
+    </tr>
+    {%endfor%}
 </table>
-<br />
+<br/>
 <table border="1" style="font-size: 70%" class="sortable">
-  <tr>
-    <th>Franchise</th>
-    <th>Starting Year</th>
-    <th>Ending Year</th>
-  </tr>
-  {%for play_for in play_for_team_history%}
-  <tr>
-    <td><a class="info" value="franchise">{{play_for[0]}}</a></td>
-    <td>{{play_for[1]}}</td>
-    <td>{{play_for[2]}}</td>
-  </tr>
-  {%endfor%}
+    <tr>
+        <th>Franchise</th>
+        <th>Starting Year</th>
+        <th>Ending Year</th>
+    </tr>
+    {%for play_for in play_for_team_history%}
+    <tr>
+        <td><a class="info" value="franchise">{{play_for[0]}}</a></td>
+        <td>{{play_for[1]}}</td>
+        <td>{{play_for[2]}}</td>
+    </tr>
+    {%endfor%}
 </table>
 <form>
-  <input type="button" value="Back" onclick="history.back()" />
-  <input type="button" value="Home" onclick="window.location.href='/'" />
+    <input type="button" value="Back" onclick="history.back()"/>
+    <input type="button" value="Home" onclick="window.location.href='/'"/>
 </form>
 <script
-  type="text/javascript"
-  src="{{ url_for('static', filename='script.js') }}"
+        type="text/javascript"
+        src="{{ url_for('static', filename='script.js') }}"
 ></script>
