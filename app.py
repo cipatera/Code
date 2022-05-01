@@ -65,17 +65,6 @@ def player_stats():
     cursor.close()
     return render_template("/playerStats.html", player_stats_details=player_stats_details)
 
-@app.route('/play_for')
-def play_for():
-    cursor = mysql.connection.cursor()
-
-    result = cursor.execute("SELECT * FROM play_for")
-    if result > 0:
-        play_for_details = cursor.fetchall()
-
-    cursor.close()
-    return render_template("play_for.html", play_for_details=play_for_details)
-
 @app.route('/gameStats', methods=['GET', 'POST'])
 def game_stats():
     cursor = mysql.connection.cursor()
@@ -136,16 +125,6 @@ def position_info(position_name):
     #print(name)
     cursor = mysql.connection.cursor()
 
-    # result = cursor.execute(f"""SELECT 
-    #                                 a.position, a.name, a.DOB, a.kit_number, 
-    #                                 b.season, b.running_yards, b.throwing_yards, b.sacks, b.catches, b.touchdowns, b.punt_returns, b.field_goals, 
-    #                                 c.franchise, c.start, c.end 
-    #                             FROM player a JOIN player_stats b 
-    #                                     ON a.name=b.name
-    #                                 JOIN play_for c 
-    #                                     ON b.name=c.name 
-    #                             WHERE a.position='{name}'""")
-    #result = cursor.execute(f"SELECT  FROM player a JOIN player_stats b ON a.name=b.name JOIN play_for c ON b.name=c.name WHERE a.position='{name}'")
     cursor.execute(f"""SELECT 
                         p.name, p.DOB, p.kit_number,
                         ps.running_yards, ps.throwing_yards, ps.sacks, ps.catches, ps.touchdowns, ps.punt_returns, ps.field_goals,
@@ -192,17 +171,21 @@ def franchise_info(franchise):
                             player p JOIN play_for pf
                                 ON p.name = pf.name 
                                 AND p.DOB = pf.DOB
+                                AND pf.end = 2021
+                                AND pf.franchise = '{franchise}'
                             JOIN player_stats ps
-                                ON p.name = ps.name
-                        WHERE 
-                            pf.end = 2021 
-                                AND pf.franchise = '{franchise}'""")
+                                ON p.name = ps.name""")
     player_details = cursor.fetchall()
     #print('PLAYER: ' + str(player_details))
 
-    cursor.execute(f"""SELECT date, result, total_yards, pass_yards, rush_yards
-                        FROM game_stats 
-                        WHERE franchise='{franchise}'""")
+    cursor.execute(f"""SELECT gs.date, gs.result, gs.total_yards, gs.pass_yards, gs.rush_yards,
+                            g.home_team, g.away_team, g.home_points, g.away_points
+                        FROM game_stats gs JOIN game g
+                            ON g.date = gs.date
+                            AND gs.franchise = '{franchise}'
+                            AND (g.home_team = gs.franchise
+                                    OR g.away_team = gs.franchise)
+                            AND g.date LIKE '2021%'""")
     game_stats_details = cursor.fetchall()
 
     cursor.close()
@@ -211,62 +194,6 @@ def franchise_info(franchise):
                             team_stats = team_stats, 
                             team = team,
                             player_details = player_details)
-
-@app.route('/franchise/<franchise>/<season>', methods=['GET','POST'])
-def franchise_season_info(franchise, season):
-    #print(franchise)
-    cursor = mysql.connection.cursor()
-
-    cursor.execute(f"""SELECT *
-                        FROM team_stats
-                        WHERE franchise = '{franchise}'""")
-    team_stats = cursor.fetchall()
-    #print(team_stats[0])
-
-    cursor.execute(f"""SELECT city, founded, division
-                        FROM team
-                        WHERE franchise = '{franchise}'""")
-    team = cursor.fetchall()
-
-    cursor.execute(f"""SELECT 
-                            p.name, p.DOB, p.kit_number, p.position,
-                            ps.running_yards, ps.throwing_yards, ps.sacks, ps.catches, ps.touchdowns, ps.punt_returns, ps.field_goals
-                        FROM 
-                            player p JOIN play_for pf
-                                ON p.name = pf.name 
-                                AND p.DOB = pf.DOB
-                            JOIN player_stats ps
-                                ON p.name = ps.name
-                        WHERE 
-                            pf.end = 2021 
-                                AND pf.franchise = '{franchise}'""")
-    player_details = cursor.fetchall()
-    #print('PLAYER: ' + str(player_details))
-
-    cursor.execute(f"""SELECT date, result, total_yards, pass_yards, rush_yards
-                        FROM game_stats 
-                        WHERE franchise='{franchise}'""")
-    game_stats_details = cursor.fetchall()
-
-    cursor.close()
-    return render_template("franchiseInfo.html", 
-                            game_stats_details = game_stats_details, 
-                            team_stats = team_stats, 
-                            team = team,
-                            player_details = player_details)
-
-@app.route('/city/<name>')
-def city_info(name):
-    print(name)
-    cursor = mysql.connection.cursor()
-
-
-    result = cursor.execute(f"SELECT * FROM team WHERE team.city='{name}'")
-    if result > 0:
-        cityInfo_details = cursor.fetchall()
-
-    cursor.close()
-    return render_template("cityInfo.html", cityInfo_details = cityInfo_details)
 
 @app.route('/division/<name>')
 def division_info(name):
@@ -300,8 +227,23 @@ def season_info(season):
     player_stats_details = cursor.fetchall()
 
     cursor.close()
-    return render_template("seasonInfo.html", team_stats_details = team_stats_details, player_stats_details = player_stats_details, season = season)
+    return render_template("seasonInfo.html", 
+                            team_stats_details = team_stats_details, 
+                            player_stats_details = player_stats_details, 
+                            season = season)
 
+@app.route('/week/<week>')
+def week_info(week):
+    cursor = mysql.connection.cursor()
+    cursor.execute(f"""SELECT home_team, away_team, home_points, away_points
+                        FROM game
+                        WHERE season = 2021
+                        AND week = {week}""")
+    week_stats_details = cursor.fetchall()
+    cursor.close()
+    return render_template("weekInfo.html", 
+                            week_stats_details = week_stats_details,
+                            week = week)
 
 
 

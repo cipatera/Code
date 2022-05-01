@@ -11,7 +11,7 @@
 <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
 <title>{{team_stats[0][0]}} Information</title>
 <p>
-  Name: <a class="info" value="franchise"></a>{{team_stats[0][0]}}
+  Name: {{team_stats[0][0]}}
   <br />
   Season: <a class="info" value="season">{{team_stats[0][1]}}</a>
   <br />
@@ -38,8 +38,13 @@
   Players: <a class="info" value="player"></a>
 </p>
 
+<<<<<<< HEAD
 <table border="1" style="width:100%" class="sortable" id="myTable">
   <tr class = "header">
+=======
+<table border="1" style="width: 100%" class="sortable">
+  <tr>
+>>>>>>> d673b599f358734ae3c4c2f2d4f2249fd451f4cb
     <th>Name</th>
     <th>Date of Birth</th>
     <th>Kit Number</th>
@@ -54,10 +59,10 @@
   </tr>
   {% for player in player_details %}
   <tr>
-    <td>{{player[0]}}</td>
+    <td><a class="info" value="player">{{player[0]}}</a></td>
     <td>{{player[1]}}</td>
     <td>{{player[2]}}</td>
-    <td>{{player[3]}}</td>
+    <td><a class="info" value="position">{{player[3]}}</a></td>
     <td>{{player[4]}}</td>
     <td>{{player[5]}}</td>
     <td>{{player[6]}}</td>
@@ -78,6 +83,10 @@ Game Stats:
     <th>Totals Yards</th>
     <th>Pass Yards</th>
     <th>Rush Yards</th>
+    <th>Home Team</th>
+    <th>Away Team</th>
+    <th>Home Points</th>
+    <th>Away Points</th>
   </tr>
   {% for game_stats in game_stats_details %}
   <tr>
@@ -86,6 +95,10 @@ Game Stats:
     <td>{{game_stats[2]}}</td>
     <td>{{game_stats[3]}}</td>
     <td>{{game_stats[4]}}</td>
+    <td><a class="info" value="franchise">{{game_stats[5]}}</a></td>
+    <td><a class="info" value="franchise">{{game_stats[6]}}</a></td>
+    <td>{{game_stats[7]}}</td>
+    <td>{{game_stats[8]}}</td>
   </tr>
   {%endfor%}
 </table>
@@ -93,5 +106,7 @@ Game Stats:
   <input type="button" value="Back" onclick="history.back()" />
   <input type="button" value="Home" onclick="window.location.href='/'" />
 </form>
-<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
-
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename='script.js') }}"
+></script>
