@@ -256,20 +256,6 @@ def week_info(week):
                             week_stats_details = week_stats_details,
                             week = week)
 
-@app.route('/week/<week>')
-def week_info(week):
-    cursor = mysql.connection.cursor()
-    cursor.execute(f"""SELECT home_team, away_team, home_points, away_points
-                        FROM game
-                        WHERE season = 2021
-                        AND week = {week}""")
-    week_stats_details = cursor.fetchall()
-    cursor.close()
-    return render_template("weekInfo.html",
-                           week_stats_details=week_stats_details,
-                           week=week)
-
-
 @app.route('/play_for')
 def play_for():
     cursor = mysql.connection.cursor()
