@@ -1,3 +1,18 @@
+const myFunction = () => {
+  const trs = document.querySelectorAll(`#myTable tr:not(.header)`)
+  const filter = document.querySelector('#myInput').value
+  const regex = new RegExp(escape(filter), 'i')
+  const isFoundInTds = td => regex.test(td.innerHTML)
+  const isFound = childrenArr => childrenArr.some(isFoundInTds)
+  const setTrStyleDisplay = ({ style, children }) => {
+    style.display = isFound([
+      ...children // <-- filter Columns
+    ]) ? '' : 'none'
+  }
+  
+  trs.forEach(setTrStyleDisplay)
+}
+
 let infos = document.querySelectorAll(".info")
    for (let info of infos) {
     info.style.cursor = 'pointer';
@@ -30,22 +45,3 @@ $(document).ready(function() {
         });
     });
 });
-filterSubmit.addEventListener('click', (e) => {
-  
-  console.log("New filters!")
-  let input = document.querySelector('.year-select').value
-  console.log(input)
-  for (let i = 0; i < players.length; i++) {
-    if (+starts[i].innerHTML > +input || +ends[i].innerHTML < +input) {
-      players[i].style.display = 'none';
-      console.log("Inside")
-    }
-    else {
-      // make sure its displayed
-      players[i].style.display === 'initial';
-      console.log("Outside")
-
-    }
-  }
-  // for loop over players where you check the same indec of starts and ends to see if it lies in the range of input text
-})

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<title>Players</title>
+<title>Week Stats</title>
 <link rel="stylesheet" href="https://viniemm.github.io/style.css" type="text/css" charset="utf-8"/>
 <head>
-  <title>Players</title>
+  <title>Week Stats</title>
   <link rel="stylesheet" href="https://viniemm.github.io/style.css" type="text/css"/>
   <meta charset="UTF-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -19,42 +19,48 @@
 
 </div>
 
+
+
+<title>Week {{week}}</title>
 <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
-Filter: <input
+<input
   type="text"
   id="myInput"
   onkeyup="myFunction()"
   placeholder="Search key words/values"
-  title="Players">
-  <form>
-    <input type="button" value="Back" onclick="history.back()" />
-    <input type="button" value="Home" onclick="window.location.href='/'" />
-  </form>
-  <title>Player</title>
-  <table border="1" style="width:100%" class="sortable" id="myTable">
+  title="Week Info"
+/>
+Week: {{week}}
+<br />
+<table border="1" style="width: 100%" class="sortable">
   <tr class="header">
-    <th>Name</th>
+    <th>Home Team</th>
+    <!-- 0 -->
+    <th>Away Team</th>
     <!-- 1 -->
-    <th>Date Of Birth</th>
+    <th>Home Points</th>
     <!-- 2 -->
-    <th>Kit Number</th>
+    <th>Away Points</th>
     <!-- 3 -->
-    <th>Position</th>
   </tr>
-    {% for player in player_details %}
-    <tr>
-      <td><a class="info" value="player">{{player[0]}}</a></td>
-      <td>{{player[1]}}</td>
-      <td>{{player[2]}}</td>
-      <td><a class="info" value="position">{{player[3]}}</a></td>
-    </tr>
-      {%endfor%}
+  {% for week_stats in week_stats_details %}
+  <tr>
+    <td><a class="info" value="franchise">{{week_stats[0]}}</a></td>
+    <td><a class="info" value="franchise">{{week_stats[1]}}</a></td>
+    <td>{{week_stats[2]}}</td>
+    <td>{{week_stats[3]}}</td>
+  </tr>
+  {%endfor%}
 </table>
 <form>
-    <input type="button" value="Back" onclick="history.back()">
-   </form>
-   </script>
-   <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+  <input type="button" value="Back" onclick="history.back()" />
+  <input type="button" value="Home" onclick="window.location.href='/'" />
+</form>
+<script
+  type="text/javascript"
+  src="{{ url_for('static', filename='script.js') }}"
+></script>
+
 
 <img src="https://tritonenviro.com/triton_wp/wp-content/uploads/grass-footer.png" width=506.67 height="50"
      alt="grass footer" align="left">

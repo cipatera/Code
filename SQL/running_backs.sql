@@ -256,8 +256,8 @@ INSERT INTO play_for(name,DOB,franchise,start,end) VALUES ('Latavius Murray','19
 INSERT INTO play_for(name,DOB,franchise,start,end) VALUES ('Latavius Murray','1990-01-18','Ravens',2021,2021);
 INSERT INTO play_for(name,DOB,franchise,start,end) VALUES ('Rashaad Penny','1996-02-02','Seahawks',2018,2021);
 INSERT INTO play_for(name,DOB,franchise,start,end) VALUES ('Chase Edmonds','1996-04-13','Cardinals',2018,2021);
-INSERT INTO play_for(name,DOB,franchise,start,end) VALUES ('Alex Collins','1994-08-27','Ravens',2017,2018);
-INSERT INTO play_for(name,DOB,franchise,start,end) VALUES ('Alex Collins','1994-08-27','Seahawks',2020,2021);
+INSERT INTO play_for(name,DOB,franchise,start,end) VALUES ('Alex Collins','1994-08-26','Ravens',2017,2018);
+INSERT INTO play_for(name,DOB,franchise,start,end) VALUES ('Alex Collins','1994-08-26','Seahawks',2020,2021);
 INSERT INTO play_for(name,DOB,franchise,start,end) VALUES ('Khalil Herbert','1998-04-21','Bears',2021,2021);
 INSERT INTO play_for(name,DOB,franchise,start,end) VALUES ('Ronald Jones II','1997-08-03','Buccaneers',2018,2021);
 INSERT INTO play_for(name,DOB,franchise,start,end) VALUES ('D''Ernest Johnson','1996-02-27','Browns',2019,2021);

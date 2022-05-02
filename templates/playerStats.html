@@ -1,7 +1,56 @@
-<title>Player Stats</title>
-<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
-<table border="1" style="font-size: 70%" class="sortable">
-    <tr>
+<!DOCTYPE html>
+<html lang="en">
+  <title>Player Stats</title>
+  <link
+    rel="stylesheet"
+    href="https://viniemm.github.io/style.css"
+    type="text/css"
+    charset="utf-8"
+  />
+  <head>
+    <title>Player Stats</title>
+    <link
+      rel="stylesheet"
+      href="https://viniemm.github.io/style.css"
+      type="text/css"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+  <body>
+    <div class="head">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0480/9470/7866/collections/6ee2c6b7a845de4046c7afb85c2e88eb.jpg?v=1646869409"
+        width="58"
+        height=" 30"
+        alt="NFL logo"
+      />
+      <img
+        src="https://case.edu/beyond/assets/img/cwru-white-logo.png"
+        width="140"
+        height="30"
+        alt="CWRU Logo"
+        align="right"
+      />
+    </div>
+
+    <input
+      type="text"
+      id="myInput"
+      onkeyup="myFunction()"
+      placeholder="Search key words/values"
+      title="Player Stats"
+    />
+    <form>
+      <input type="button" value="Back" onclick="history.back()" />
+      <input type="button" value="Home" onclick="window.location.href='/'" />
+    </form>
+    <title>Player Stats</title>
+    <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+    <table border="1" style="width: 100%" class="sortable" id="myTable">
+      <tr class="header">
         <!-- 0 -->
         <th>Name</th>
         <!-- 1 -->
@@ -20,9 +69,9 @@
         <th>Punt Returns</th>
         <!-- 8 -->
         <th>Field Goals</th>
-    </tr>
-    {% for player_stats in player_stats_details %}
-    <tr>
+      </tr>
+      {% for player_stats in player_stats_details %}
+      <tr>
         <td><a class="info" value="player">{{player_stats[0]}}</a></td>
         <td><a class="info" value="season">{{player_stats[1]}}</a></td>
         <td>{{player_stats[2]}}</td>
@@ -32,13 +81,37 @@
         <td>{{player_stats[6]}}</td>
         <td>{{player_stats[7]}}</td>
         <td>{{player_stats[8]}}</td>
-    </tr>
-    {%endfor%}
-</table>
-<form>
-    <input type="button" value="Back" onclick="history.back()"/>
-</form>
-<script
-        type="text/javascript"
-        src="{{ url_for('static', filename='script.js') }}"
-></script>
+      </tr>
+      {%endfor%}
+    </table>
+    <form>
+      <input type="button" value="Back" onclick="history.back()" />
+    </form>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='script.js') }}"
+    ></script>
+
+    <img
+      src="https://tritonenviro.com/triton_wp/wp-content/uploads/grass-footer.png"
+      width="506.67"
+      height="50"
+      alt="grass footer"
+      align="left"
+    />
+    <img
+      src="https://tritonenviro.com/triton_wp/wp-content/uploads/grass-footer.png"
+      width="506.67"
+      height="50"
+      alt="grass footer"
+      align="center"
+    />
+    <img
+      src="https://tritonenviro.com/triton_wp/wp-content/uploads/grass-footer.png"
+      width="506.67"
+      height="50"
+      alt="grass footer"
+      align="right"
+    />
+  </body>
+</html>

@@ -1,14 +1,62 @@
-<script src=
-                "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-</script>
-<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
-<link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8"/>
-<b>Search the table for Course, Fees or Type:
-    <input id="gfg" type="text"
-           placeholder="Search here">
-</b>
-<table border="1" style="font-size:70%" class="sortable">
-    <tr>
+<!DOCTYPE html>
+<html lang="en">
+  <title>Play For</title>
+  <link
+    rel="stylesheet"
+    href="https://viniemm.github.io/style.css"
+    type="text/css"
+    charset="utf-8"
+  />
+  <head>
+    <title>Play For</title>
+    <link
+      rel="stylesheet"
+      href="https://viniemm.github.io/style.css"
+      type="text/css"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+  <body>
+    <div class="head">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0480/9470/7866/collections/6ee2c6b7a845de4046c7afb85c2e88eb.jpg?v=1646869409"
+        width="58"
+        height=" 30"
+        alt="NFL logo"
+      />
+      <img
+        src="https://case.edu/beyond/assets/img/cwru-white-logo.png"
+        width="140"
+        height="30"
+        alt="CWRU Logo"
+        align="right"
+      />
+    </div>
+
+    <input
+      type="text"
+      id="myInput"
+      onkeyup="myFunction()"
+      placeholder="Search key words/values"
+      title="Playing For"
+    />
+    <form>
+      <input type="button" value="Back" onclick="history.back()" />
+      <input type="button" value="Home" onclick="window.location.href='/'" />
+    </form>
+    <script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+    <link
+      rel="stylesheet"
+      href="css/style.css"
+      type="text/css"
+      charset="utf-8"
+    />
+    <title>Playing For</title>
+    <table border="1" style="width: 100%" class="sortable" id="myTable">
+      <tr class="header">
         <th>Name</th>
         <!-- 0 -->
         <th>Date Of Birth</th>
@@ -19,21 +67,46 @@
         <!-- 3 -->
         <th>End</th>
         <!-- 4 -->
-    </tr>
-    {% for play_for in play_for_details %}
-    <tbody id="geeks" class="players">
-    <tr>
+      </tr>
+      {% for play_for in play_for_details %}
+      <tr>
         <td><a class="info" value="player">{{play_for[0]}}</a></td>
         <td>{{play_for[1]}}</td>
         <td>{{play_for[2]}}</td>
         <td class="start">{{play_for[3]}}</td>
         <td class="end">{{play_for[4]}}</td>
-    </tr>
-    </tbody>
-    {%endfor%}
-</table>
-<form>
-    <input type="button" value="Back" onclick="history.back()">
-</form>\
-<script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
- 
+      </tr>
+      {%endfor%}
+    </table>
+    <form>
+      <input type="button" value="Back" onclick="history.back()" />
+    </form>
+    \
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='script.js') }}"
+    ></script>
+
+    <img
+      src="https://tritonenviro.com/triton_wp/wp-content/uploads/grass-footer.png"
+      width="506.67"
+      height="50"
+      alt="grass footer"
+      align="left"
+    />
+    <img
+      src="https://tritonenviro.com/triton_wp/wp-content/uploads/grass-footer.png"
+      width="506.67"
+      height="50"
+      alt="grass footer"
+      align="center"
+    />
+    <img
+      src="https://tritonenviro.com/triton_wp/wp-content/uploads/grass-footer.png"
+      width="506.67"
+      height="50"
+      alt="grass footer"
+      align="right"
+    />
+  </body>
+</html>
